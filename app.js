@@ -1,5 +1,6 @@
-const inquirer = require('inquirer');
+
 const fs = require('fs');
+const inquirer = require('inquirer');
 const generatePage = require('./src/page-template');
 //const profileDataArgs = process.argv.slice(2);
 //const name =profileDataArgs[0];
@@ -146,7 +147,7 @@ promtUser()
 //.then(projectAnswers => console.log(projectAnswers))
 .then(portfolioData => {
     const pageHTML = generatePage(portfolioData);
-    fs.writeFile('.index.html', pageHTML, err => {
+    fs.writeFile('./index.html', pageHTML, err => {
        if(err) throw new Error(err);
        console.log("Page created! Check out index.html in this directory to see it!");
     });
